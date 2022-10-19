@@ -9,12 +9,12 @@ describe('', () => {
     renderWithRouter(<App />);
     const encounteredPokemons = screen.getByRole('heading', { name: 'Encountered pokémons' });
     expect(encounteredPokemons).toBeInTheDocument();
-    const pokemonAtual = screen.getByTestId('pokemon-name').textContent;
+    const pokemonAtual = screen.getByTestId('pokemon-name');
+    const pokemonNome = pokemonAtual.textContent;
     const buttonNext = screen.getByTestId('next-pokemon');
     userEvent.click(buttonNext);
-    const pokemonProximo = screen.getByTestId('pokemon-name').textContent;
-    expect(pokemonAtual).not.toBe(pokemonProximo);
-    const pokemonQuantidade = screen.getAllByTestId('pokemon-type');
+    expect(pokemonNome).not.toBe(pokemonAtual.textContent);
+    const pokemonQuantidade = screen.getAllByTestId('pokemon-weight');
     expect(pokemonQuantidade.length).toBe(1);
   });
   test('Teste Botoes de Tipo de Pokemon', () => {
@@ -33,20 +33,21 @@ describe('', () => {
   test('Teste se o pokemon muda de acordo com tipo clickado', () => {
     renderWithRouter(<App />);
     const todosBotoes = screen.getAllByTestId('pokemon-type-button');
+    const pokeTypeOnScreen = screen.getByTestId('pokemon-type');
     userEvent.click(todosBotoes[0]);
-    expect(screen.getByTestId('pokemon-type').textContent).toBe(todosBotoes[0].textContent);
+    expect(pokeTypeOnScreen.textContent).toBe(todosBotoes[0].textContent);
     userEvent.click(todosBotoes[1]);
-    expect(screen.getByTestId('pokemon-type').textContent).toBe(todosBotoes[1].textContent);
+    expect(pokeTypeOnScreen.textContent).toBe(todosBotoes[1].textContent);
     userEvent.click(todosBotoes[2]);
-    expect(screen.getByTestId('pokemon-type').textContent).toBe(todosBotoes[2].textContent);
+    expect(pokeTypeOnScreen.textContent).toBe(todosBotoes[2].textContent);
     userEvent.click(todosBotoes[3]);
-    expect(screen.getByTestId('pokemon-type').textContent).toBe(todosBotoes[3].textContent);
+    expect(pokeTypeOnScreen.textContent).toBe(todosBotoes[3].textContent);
     userEvent.click(todosBotoes[4]);
-    expect(screen.getByTestId('pokemon-type').textContent).toBe(todosBotoes[4].textContent);
+    expect(pokeTypeOnScreen.textContent).toBe(todosBotoes[4].textContent);
     userEvent.click(todosBotoes[5]);
-    expect(screen.getByTestId('pokemon-type').textContent).toBe(todosBotoes[5].textContent);
+    expect(pokeTypeOnScreen.textContent).toBe(todosBotoes[5].textContent);
     userEvent.click(todosBotoes[6]);
-    expect(screen.getByTestId('pokemon-type').textContent).toBe(todosBotoes[6].textContent);
+    expect(pokeTypeOnScreen.textContent).toBe(todosBotoes[6].textContent);
     const botaoAll = screen.getByTestId('');
     userEvent.click(botaoAll);
     expect(screen.getByTestId('pokemon-name').textContent).toBe('Pikachu');

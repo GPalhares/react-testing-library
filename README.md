@@ -1,6 +1,6 @@
 # Boas vindas ao repositório do projeto React Test Library
 
-Este projeto é um exemplo de como utilizar o RTL (React Testing Library) para escrever testes automatizados em JavaScript para aplicações React. O objetivo deste projeto é ajudar desenvolvedores a entender como escrever testes eficazes para garantir a qualidade de suas aplicações.
+Este projeto é um exemplo de como utilizar o RTL (React Testing Library) para escrever testes automatizados em JavaScript para aplicações React. O objetivo deste projeto foi aprender a aprimorar minhas habilidades com a biblioteca RTL para deixar as aplicações em REACT mais seguras.
 
 # Pre requisitos
 
